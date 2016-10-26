@@ -116,9 +116,10 @@ public class ItemFragment extends Fragment {
                                 String img_path = jsonObject1.getString("poster_path");
                                 String f_name = jsonObject1.getString("original_title");
 
+                                String over_view = jsonObject1.getString("overview");
 
 
-                                ItemModel model = new ItemModel(img_path, f_name);
+                                ItemModel model = new ItemModel(img_path, f_name, over_view);
                                 mDataSet.add(model);
 
                             }

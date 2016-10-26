@@ -6,18 +6,19 @@ package com.example.lenovo.myapplication;
 
 public class ItemModel {
 
-    String image_path, film_name ;
+    String image_path, film_name, over_view ;
 
-    public ItemModel(String overView, String film_name) {
+    public ItemModel(String overView, String film_name, String over_view) {
         this.film_name= film_name;
         this.image_path = overView;
+        this.over_view =over_view;
     }
 
-    public String getOverView() {
+    public String getImagePath() {
         return image_path;
     }
 
-    public void setOverView(String overView) {
+    public void setImagePath(String overView) {
         this.image_path = overView;
     }
 
@@ -27,5 +28,13 @@ public class ItemModel {
 
     public void setFilm_name(String film_name) {
         this.film_name = film_name;
+    }
+
+    public String getOver_view() {
+        return over_view;
+    }
+
+    public void setOver_view(String over_view) {
+        this.over_view = over_view;
     }
 }

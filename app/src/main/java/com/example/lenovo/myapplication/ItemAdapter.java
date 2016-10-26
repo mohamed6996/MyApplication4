@@ -38,7 +38,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.VH> {
     public void onBindViewHolder(VH holder, int position) {
         ItemModel model = mDataset.get(position);
 
-        String FULL_IMG = Constants.IMG_BASE + model.getOverView();
+        String FULL_IMG = Constants.IMG_BASE + model.getImagePath();
 
         Glide.with(context).load(FULL_IMG).into(holder.imageView);
         holder.textView.setText(model.getFilm_name());
@@ -76,7 +76,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.VH> {
             ItemModel m = vhDataSet.get(position);
 
             Intent intent = new Intent(this.vhContext, DetailActivity.class);
-            intent.putExtra("f_name",m.getFilm_name());
+            intent.putExtra("f_name",m.getOver_view());
             this.vhContext.startActivity(intent);
 
 
