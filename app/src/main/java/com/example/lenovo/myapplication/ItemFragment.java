@@ -117,9 +117,11 @@ public class ItemFragment extends Fragment {
                                 String f_name = jsonObject1.getString("original_title");
 
                                 String over_view = jsonObject1.getString("overview");
+                                String release_date = jsonObject1.getString("release_date");
+                                String vote_average = jsonObject1.getString("vote_average");
 
 
-                                ItemModel model = new ItemModel(img_path, f_name, over_view);
+                                ItemModel model = new ItemModel(img_path, f_name, over_view, release_date, vote_average);
                                 mDataSet.add(model);
 
                             }

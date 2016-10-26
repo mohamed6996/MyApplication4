@@ -76,7 +76,9 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.VH> {
             ItemModel m = vhDataSet.get(position);
 
             Intent intent = new Intent(this.vhContext, DetailActivity.class);
-            intent.putExtra("f_name",m.getOver_view());
+            intent.putExtra("OVER_VIEW_KEY",m.getOver_view());
+            intent.putExtra("RELEASE_DATE_KEY", m.getRelease_date());
+            intent.putExtra("VOTE_AVERAGE_KEY", m.getVote_average());
             this.vhContext.startActivity(intent);
 
 
