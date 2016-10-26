@@ -1,5 +1,6 @@
 package com.example.lenovo.myapplication;
 
+import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
@@ -74,6 +75,8 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.VH> {
 
             int position = getAdapterPosition();
             ItemModel m = vhDataSet.get(position);
+
+
 
             Intent intent = new Intent(this.vhContext, DetailActivity.class);
             intent.putExtra("OVER_VIEW_KEY",m.getOver_view());
