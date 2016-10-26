@@ -117,6 +117,7 @@ public class ItemFragment extends Fragment {
                                 String f_name = jsonObject1.getString("original_title");
 
 
+
                                 ItemModel model = new ItemModel(img_path, f_name);
                                 mDataSet.add(model);
 

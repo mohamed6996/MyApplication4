@@ -1,6 +1,7 @@
 package com.example.lenovo.myapplication;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -29,7 +31,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.VH> {
 
     public VH onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_row, parent, false);
-        return new VH(view);
+        return new VH(view, this.context, this.mDataset);
     }
 
     @Override
@@ -47,15 +49,38 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.VH> {
         return mDataset.size();
     }
 
-    public static class VH extends RecyclerView.ViewHolder {
+    public static class VH extends RecyclerView.ViewHolder implements View.OnClickListener {
         ImageView imageView;
         TextView textView;
 
-        public VH(View itemView) {
+        Context vhContext;
+        List<ItemModel> vhDataSet = new ArrayList<>();
+
+        public VH(View itemView, Context context, List<ItemModel> vhDataSet) {
             super(itemView);
 
+            this.vhContext = context;
+            this.vhDataSet = vhDataSet;
+
+
             imageView = (ImageView) itemView.findViewById(R.id.img);
+            imageView.setOnClickListener(this);
+
             textView = (TextView) itemView.findViewById(R.id.count);
+        }
+
+        @Override
+        public void onClick(View v) {
+
+            int position = getAdapterPosition();
+            ItemModel m = vhDataSet.get(position);
+
+            Intent intent = new Intent(this.vhContext, DetailActivity.class);
+            intent.putExtra("f_name",m.getFilm_name());
+            this.vhContext.startActivity(intent);
+
+
+
         }
     }
 }
